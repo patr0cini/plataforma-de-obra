@@ -6,7 +6,7 @@ no computador e no telemóvel, com o empreiteiro geral a escolher o que cada sub
 - `index.html` – o site.
 - `exemplos/` – duas obras de exemplo, fictícias (hotel; edifício de escritórios com três pisos).
   Os nomes, as pessoas e os emails são inventados. As contas, os avisos por email e o GPS estão simulados.
-- `video/` – vídeo de apresentação (82 s).
+- `video/` – vídeo de apresentação (1 min 47 s), em três tamanhos: telemóvel, computador e ecrãs de alta resolução.
 
 Alojamento provisório: as páginas pedem aos motores de busca que não as indexem.
 O código que gera o site e as obras está no repositório privado da ferramenta de mapas de obra.
