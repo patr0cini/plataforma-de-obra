@@ -185,6 +185,12 @@ p{margin:0}
 .dado{font-family:var(--f-m);font-size:.76rem;color:var(--ink);background:var(--tint);border-radius:4px;padding:.55em .75em;justify-self:start;line-height:1.45;max-width:100%}
 .dado mark{background:var(--warn-bg);color:var(--warn-ink);padding:0 3px;border-radius:2px}
 @media (max-width:760px){.feats{grid-template-columns:minmax(0,1fr)}}
+.mais{list-style:none;margin:clamp(48px,6vw,72px) 0 0;padding:clamp(24px,3vw,32px) 0 0;border-top:1px solid var(--line2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 32px}
+.mais li{display:grid;gap:4px;align-content:start}
+.mais b{font:500 1.12rem/1.25 var(--f-d)}
+.mais span{color:var(--muted);font-size:.98rem}
+@media (max-width:900px){.mais{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.mais{grid-template-columns:minmax(0,1fr)}}
 
 /* vídeo */
 .band{background:var(--band);color:var(--band-ink)}
@@ -404,7 +410,7 @@ p{margin:0}
     <header class="sec-h">
       <p class="eyebrow">O que a plataforma faz</p>
       <h2 id="h-fun">Do escritório à obra, a mesma informação</h2>
-      <p class="lead">Pode experimentar tudo nas obras de exemplo. Nelas, os emails e o GPS são simulados.</p>
+      <p class="lead">Tudo funciona da mesma maneira em todas as especialidades, da drenagem à plantação. Pode experimentar nas obras de exemplo; nelas, os emails e o GPS são simulados.</p>
     </header>
     <div class="feats">
       <article class="feat">
@@ -416,12 +422,20 @@ p{margin:0}
         <div class="ft"><p class="tag">Mapa de quantidades</p><h3>Cada tipo de elemento é um artigo</h3><p>Previsto no mapa de quantidades, medido no desenho e feito em obra, lado a lado. Quando o desenho não bate certo com o mapa de quantidades, a diferença fica assinalada para confirmar com o projetista.</p><p class="dado">Art. 5.9 · Tubo PEAD Ø 25 mm · previsto 703,1 m · desenho 682,0 m · <mark>−3,0 %</mark></p></div>
       </article>
       <article class="feat">
+        <div class="shot"><img src="img/f-iso.jpg" width="1200" height="900" loading="lazy" alt="Mapa com só os 28 aspersores de turbina à vista e o resto da obra esbatido."></div>
+        <div class="ft"><p class="tag">Ver só um tipo</p><h3>Só as caixas, só os aspersores, só uma espécie</h3><p>Toque num artigo ou num elemento e o mapa mostra só esse tipo, com o resto da obra esbatido. Também se esconde um tipo sem esconder a especialidade toda. Cada tipo tem a sua ficha, com as quantidades, o pormenor e a lista dos elementos.</p><p class="dado">Art. 5.5 · Aspersor emergente de turbina · 28 un</p></div>
+      </article>
+      <article class="feat">
         <div class="shot"><img src="img/f-ficha0.jpg" width="1200" height="900" loading="lazy" alt="Ficha da caixa de visita CV3 com o artigo, o detalhe construtivo, o avanço e a ocorrência ligada a ela."></div>
         <div class="ft"><p class="tag">Ficha do elemento</p><h3>Toque numa caixa, num tubo ou numa árvore</h3><p>Abre a ficha com o artigo, as dimensões, o pormenor construtivo da folha em vigor, a ampliação onde aparece, o avanço e as ocorrências desse elemento.</p><p class="dado">CV3 · Caixa de visita 60 × 60 cm · Art. 3.2 · Detalhe DR.02</p></div>
       </article>
       <article class="feat">
         <div class="shot"><img src="img/f-folhas.jpg" width="1200" height="900" loading="lazy" alt="Folha P0-105, rede de rega, com as revisões R01 a R03 e o que mudou na R03."></div>
         <div class="ft"><p class="tag">Folhas e revisões</p><h3>Sempre a revisão em vigor</h3><p>Plantas por piso, ampliações e detalhes, cada folha com as suas revisões. O que mudou em cada revisão fica escrito, e o mapa mostra onde.</p><p class="dado">P0-105 · Rede de rega · R03 em vigor desde 28/10/2026</p></div>
+      </article>
+      <article class="feat">
+        <div class="shot"><img src="img/f-zona.jpg" width="1200" height="900" loading="lazy" alt="Zona marcada no mapa e a lista do que ela leva, por especialidade."></div>
+        <div class="ft"><p class="tag">Medir e zona</p><h3>O que leva esta zona</h3><p>Com a régua mede-se uma distância ou marca-se uma zona no mapa. A plataforma diz o que a zona leva em cada especialidade: metros de tubo, m² de pavimento, caixas, plantas. A lista exporta para Excel.</p><p class="dado">Zona de 1198 m² · 41,9 m de tubo PEAD Ø 40 · 1 caixa de visita</p></div>
       </article>
       <article class="feat">
         <div class="shot"><img src="img/f-acessos.jpg" width="1200" height="900" loading="lazy" alt="Formulário para convidar uma pessoa, com a escolha entre completo, desenho ou não vê para cada especialidade."></div>
@@ -440,6 +454,14 @@ p{margin:0}
         <div class="ft"><p class="tag">Em obra</p><h3>Onde estou e guiar até aqui</h3><p>No telemóvel, o ponto azul mostra onde a equipa está. Escolha uma caixa, um candeeiro ou uma árvore e a plataforma indica a distância e a direção, com 3 a 5 metros de erro.</p><p class="dado">CV3 · 68 m para norte</p></div>
       </article>
     </div>
+    <ul class="mais" aria-label="Outras funções">
+      <li><b>Plantas em cada mancha</b><span>Área × compasso: a mancha diz quantas plantas leva, e a espécie diz o total. Lavandula viridis no hotel de exemplo: 643 m², cerca de 2573 plantas.</span></li>
+      <li><b>Procurar</b><span>Por código ou nome: CV3, lancil, aspersor, Lavandula. Leva ao elemento ou ao tipo.</span></li>
+      <li><b>Exportar para Excel</b><span>As quantidades de cada especialidade, com previsto, desenho e feito, e o que leva uma zona.</span></li>
+      <li><b>Feito ou por fazer</b><span>O mapa mostra tudo, só o que está feito ou só o que falta fazer.</span></li>
+      <li><b>Modo sol</b><span>Sem o fundo e com linhas e letras mais fortes, para ler o ecrã ao ar livre.</span></li>
+      <li><b>Ligação direta</b><span>Cada elemento e cada tipo tem uma ligação que se pode mandar a alguém.</span></li>
+    </ul>
   </div>
 </section>
 
