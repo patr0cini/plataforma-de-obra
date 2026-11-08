@@ -17,9 +17,9 @@
 <meta name="description" content="Todas as especialidades da obra num só mapa, no computador e no telemóvel. O empreiteiro geral escolhe o que cada subempreiteiro vê.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Code+Pro:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
-/* Layout: folha de obra. Fundo neutro, tinta de grafite; a cor forte vem só das nove especialidades (a faixa no topo e no «Ver como»). */
+/* Layout: página curta. O vídeo explica; a página diz o que é, porque vale a pena e como começar. A cor forte vem só da faixa das nove especialidades. */
 :root{
   --bg:#F2F3F0; --surface:#FBFBFA; --ink:#1C1F23; --muted:#565D65; --line:#D6D9D3; --line2:#AAB0A9; --tint:#E7E9E4;
   --band:#1C1F23; --band-ink:#ECEEEA; --band-muted:#A7AEB5; --band-line:#3A4047;
@@ -27,8 +27,7 @@
   --ter:#795548; --mur:#B5543C; --dre:#00838F; --agu:#6A4C9C; --rega:#1565C0; --ele:#C48A00; --pav:#8D8270; --mob:#5D6B75; --pla:#4F8A2B;
   --f-d:'Jost','Century Gothic','Avenir Next',system-ui,sans-serif;
   --f-b:'Source Sans 3','Segoe UI',system-ui,sans-serif;
-  --f-m:'Source Code Pro',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
-  --max:1200px; --gut-l:max(16px, env(safe-area-inset-left, 0px)); --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  --max:1120px; --gut-l:max(16px, env(safe-area-inset-left, 0px)); --gut-r:max(16px, env(safe-area-inset-right, 0px));
   --faixa:linear-gradient(90deg,var(--ter) 0 11.11%,var(--mur) 0 22.22%,var(--dre) 0 33.33%,var(--agu) 0 44.44%,var(--rega) 0 55.55%,var(--ele) 0 66.66%,var(--pav) 0 77.77%,var(--mob) 0 88.88%,var(--pla) 0);
 }
 @media (prefers-color-scheme: dark){
@@ -50,33 +49,27 @@
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-b);font-size:17px;line-height:1.55}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-b);font-size:18px;line-height:1.55}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
 img,video{max-width:100%;display:block}
 a{color:inherit;text-underline-offset:.18em;text-decoration-thickness:1px}
-a:hover{text-decoration-thickness:2px}
 :focus-visible{outline:2px solid var(--rega);outline-offset:3px;border-radius:3px}
 h1,h2,h3{font-family:var(--f-d);font-weight:500;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1{font-size:clamp(2.2rem,1.3rem + 2.5vw,3.2rem);line-height:1.05}
-h2{font-size:clamp(1.8rem,1.25rem + 1.8vw,2.6rem);line-height:1.08}
-h3{font-size:1.3rem;line-height:1.2}
+h1{font-size:clamp(2.3rem,1.4rem + 3vw,3.6rem);line-height:1.04}
+h2{font-size:clamp(1.8rem,1.3rem + 1.6vw,2.5rem);line-height:1.1}
+h3{font-size:1.32rem;line-height:1.22}
 p{margin:0}
 .wrap{max-width:calc(var(--max) + 64px);margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
 @media (min-width:700px){.wrap{padding-left:max(32px, env(safe-area-inset-left, 0px));padding-right:max(32px, env(safe-area-inset-right, 0px))}}
-.eyebrow,.tag{font-family:var(--f-m);font-size:.74rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.lead{font-size:1.14rem;color:var(--muted);max-width:62ch}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.lead{font-size:1.2rem;color:var(--muted);max-width:52ch}
 .skip{position:absolute;left:12px;top:-60px;z-index:50;background:var(--ink);color:var(--bg);padding:8px 12px;border-radius:4px}
 .skip:focus{top:calc(env(safe-area-inset-top,0px) + 12px)}
-
-/* botões */
-.btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;gap:.5em;font:600 1rem/1 var(--f-b);padding:.85em 1.2em;border-radius:4px;text-decoration:none;border:1.5px solid var(--ink);transition:transform .15s, background-color .15s}
+.btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.5em;font:600 1rem/1 var(--f-b);padding:.9em 1.25em;border-radius:4px;text-decoration:none;border:1.5px solid var(--ink);transition:transform .15s;cursor:pointer}
 .btn.pri{background:var(--ink);color:var(--bg)}
 .btn.out{background:transparent;color:var(--ink)}
 .btn:hover{transform:translateY(-1px)}
-.btn .ar{font-family:var(--f-m);font-weight:500}
-
 /* cabeçalho */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 .top::before{content:"";display:block;height:4px;background:var(--faixa)}
@@ -85,180 +78,50 @@ p{margin:0}
 .marca b{font:500 1.2rem/1 var(--f-d);letter-spacing:-.01em}
 .marca small{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted)}
 .marca svg{height:18px;width:65px;color:var(--ink);position:relative;top:2px}
-.nav{display:flex;gap:22px;margin-left:auto;font-size:.95rem}
-.nav a{text-decoration:none;color:var(--muted)}
-.nav a:hover{color:var(--ink);text-decoration:underline}
-.top .btn{padding:.6em .95em;font-size:.92rem}
-@media (max-width:980px){.nav{display:none}.top .btn{margin-left:auto}}
+.top .btn{margin-left:auto;padding:.6em .95em;font-size:.92rem}
 @media (max-width:460px){.marca small{display:none}.top .btn{font-size:.85rem;padding:.55em .75em}}
-
-/* secções */
-.sec{padding-block:clamp(56px,8vw,104px);scroll-margin-top:72px}
-.sec-h{display:grid;gap:14px;margin-bottom:clamp(28px,4vw,48px);max-width:820px}
+.sec{padding-block:clamp(56px,8vw,96px);scroll-margin-top:72px}
 .alt{background:var(--surface);border-block:1px solid var(--line)}
-
-/* hero */
-.hero .wrap{display:grid;grid-template-columns:minmax(0,4.6fr) minmax(0,7.4fr);gap:clamp(28px,4vw,56px);align-items:start;padding-block:clamp(36px,5.5vw,72px) clamp(48px,7vw,88px)}
-.hero-t{display:grid;gap:22px;padding-top:clamp(0px,2vw,24px)}
-.hero-t .lead{font-size:1.16rem}
-.hero-meta{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:16px;font-size:.95rem;color:var(--muted)}
-.hero-meta b{color:var(--ink);font-weight:600}
-@media (max-width:980px){.hero .wrap{grid-template-columns:minmax(0,1fr)}}
-
-/* Ver como */
-.vc{margin:0;display:grid;gap:14px;min-width:0}
-.vc-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
-.vc-bar .tag{flex:0 0 auto}
-.seg{display:flex;flex-wrap:wrap;gap:6px}
-.seg button{font:600 .9rem/1 var(--f-b);color:var(--ink);background:var(--surface);border:1px solid var(--line2);border-radius:4px;padding:.6em .8em;cursor:pointer;transition:background-color .15s,color .15s}
-.seg button:hover{border-color:var(--ink)}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.vc-shot{display:grid;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:var(--tint);box-shadow:0 22px 44px -30px rgba(18,22,26,.45)}
-.vc-shot picture{grid-area:1/1;opacity:0;transition:opacity .35s ease}
-.vc-shot picture.on{opacity:1}
-.vc-shot img{width:100%;height:auto}
-.vc-esp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:4px}
-.vc-esp li{display:grid;gap:6px;align-content:start;min-width:0}
-.vc-esp .bar{height:10px;border-radius:2px;border:1px solid var(--c);transition:background-color .3s}
-.vc-esp .nm{font-size:.78rem;font-weight:600;line-height:1.15;hyphens:auto;overflow-wrap:break-word}
-.vc-esp .st{font-family:var(--f-m);font-size:.66rem;color:var(--muted);line-height:1.2}
-.vc-esp li[data-s="c"] .bar{background:var(--c)}
-.vc-esp li[data-s="d"] .bar{background:repeating-linear-gradient(135deg,var(--c) 0 1.5px,transparent 1.5px 5px)}
-.vc-esp li[data-s="n"] .bar{border:1px dashed var(--line2);background:none}
-.vc-esp li[data-s="n"] .nm{color:var(--muted);font-weight:400}
-.vc-txt{font-size:.98rem;color:var(--muted);min-height:3.1em;max-width:70ch}
-.vc-txt b{color:var(--ink);font-weight:600}
-@media (max-width:760px){.vc-esp{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}.vc-esp .nm{font-size:.86rem}.vc-esp .st{font-size:.72rem}}
-
-/* hoje */
-.hoje-g{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:start}
-.hoje-t{display:grid;gap:18px}
-.hoje-t p{max-width:58ch}
-.folhas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0;padding:0;list-style:none}
-.folhas figure{margin:0;display:grid;gap:6px}
-.folhas img{width:100%;height:auto;border:1px solid var(--line2);background:#fff;box-shadow:0 10px 20px -16px rgba(18,22,26,.5)}
-.folhas figcaption{font-family:var(--f-m);font-size:.7rem;color:var(--muted);line-height:1.3}
-.folhas figcaption b{color:var(--ink);font-weight:500}
-.folhas .velha b{background:var(--warn-bg);color:var(--warn-ink);padding:0 3px;border-radius:2px}
-@media (max-width:980px){.hoje-g{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:520px){.folhas{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* tabelas que viram blocos no telemóvel */
-.tab{width:100%;border-collapse:collapse;margin-top:clamp(36px,5vw,56px);font-size:1rem}
-.tab caption{text-align:left;font-family:var(--f-m);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:10px}
-.tab th,.tab td{text-align:left;vertical-align:top;padding:14px 16px 14px 0;border-top:1px solid var(--line)}
-.tab thead th{font-family:var(--f-m);font-size:.74rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:0;padding-top:0}
-.tab tbody th{font-weight:600;width:18%}
-.tab td.nao{color:var(--muted)}
-.tab tr:last-child > *{border-bottom:1px solid var(--line)}
-@media (max-width:700px){
-  .tab thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  .tab,.tab tbody,.tab tr,.tab th,.tab td{display:block;width:auto}
-  .tab tr{border-top:1px solid var(--line);padding:14px 0}
-  .tab tr:last-child{border-bottom:1px solid var(--line)}
-  .tab th,.tab td,.tab tr:last-child > *{border:0;padding:3px 0}
-  .tab caption{display:block}
-  .tab tbody th{width:auto;padding-bottom:6px}
-  .tab td::before{content:attr(data-l);display:block;font-family:var(--f-m);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-}
-
-/* especialidades */
-.esps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 32px;margin:0;padding:0;list-style:none}
-.esps li{border-top:4px solid var(--c);padding-top:14px;display:grid;gap:8px;align-content:start}
-.esps h3{font-size:1.22rem}
-.esps p{color:var(--muted)}
-.esps .conta{font-family:var(--f-m);font-size:.76rem;color:var(--ink);line-height:1.5}
-.nota{margin-top:clamp(32px,4vw,44px);padding:16px 18px;border:1px solid var(--line2);border-radius:6px;max-width:820px;color:var(--muted)}
-.nota b{color:var(--ink)}
-@media (max-width:900px){.esps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.esps{grid-template-columns:minmax(0,1fr);gap:28px}}
-
-/* o que faz */
-.feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(44px,5vw,72px) clamp(28px,4vw,48px)}
-.feat{display:grid;gap:18px;align-content:start;min-width:0}
-.shot{aspect-ratio:4/3;max-width:100%;border:1px solid var(--line2);border-radius:6px;overflow:hidden;background:var(--tint)}
-.shot img{width:100%;height:100%;object-fit:cover;object-position:left top}
-.shot.tel{display:flex;justify-content:center;align-items:flex-end;padding-top:26px}
-.shot.tel img{width:auto;height:100%;max-width:none;object-fit:contain;border:1px solid var(--line2);border-bottom:0;border-radius:20px 20px 0 0;box-shadow:0 18px 36px -20px rgba(18,22,26,.5)}
-.ft{display:grid;gap:8px}
-.ft p{color:var(--muted);max-width:60ch}
-.dado{font-family:var(--f-m);font-size:.76rem;color:var(--ink);background:var(--tint);border-radius:4px;padding:.55em .75em;justify-self:start;line-height:1.45;max-width:100%}
-.dado mark{background:var(--warn-bg);color:var(--warn-ink);padding:0 3px;border-radius:2px}
-@media (max-width:760px){.feats{grid-template-columns:minmax(0,1fr)}}
-.mais{list-style:none;margin:clamp(48px,6vw,72px) 0 0;padding:clamp(24px,3vw,32px) 0 0;border-top:1px solid var(--line2);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 32px}
-.mais li{display:grid;gap:4px;align-content:start}
-.mais b{font:500 1.12rem/1.25 var(--f-d)}
-.mais span{color:var(--muted);font-size:.98rem}
-@media (max-width:900px){.mais{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.mais{grid-template-columns:minmax(0,1fr)}}
-
-/* vídeo */
-.band{background:var(--band);color:var(--band-ink)}
-.band .eyebrow,.band .lead{color:var(--band-muted)}
-.vid-g{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
-.vid-g video{width:100%;height:auto;aspect-ratio:4/5;border-radius:8px;background:#000;border:1px solid var(--band-line)}
-.vid-t{display:grid;gap:18px}
-.caps{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--band-line)}
-.caps button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:3.4em 1fr;gap:12px;width:100%;padding:10px 4px;border-bottom:1px solid var(--band-line);cursor:pointer;color:var(--band-muted)}
-.caps button:hover,.caps button[aria-current="true"]{color:var(--band-ink)}
-.caps button[aria-current="true"] span:last-child{text-decoration:underline;text-underline-offset:.2em}
-.caps button:focus-visible{outline:2px solid var(--band-ink);outline-offset:-2px}
-.caps time{font-family:var(--f-m);font-size:.84rem;padding-top:.15em}
-@media (max-width:820px){.vid-g{grid-template-columns:minmax(0,1fr)}.vid-g video{max-width:420px}}
-
+/* abertura com o vídeo */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(32px,5vw,72px);align-items:center;padding-block:clamp(40px,6vw,80px)}
+.hero-t{display:grid;gap:24px;align-content:start}
+.hero-t .eyebrow{margin-bottom:0}
+.vid{margin:0;display:grid;gap:10px}
+.vid video{width:100%;height:auto;aspect-ratio:4/5;border-radius:10px;background:#111;box-shadow:0 26px 50px -30px rgba(18,22,26,.55)}
+.vid figcaption{font-size:.9rem;color:var(--muted)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.vid{max-width:440px}}
+/* porquê */
+.razoes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,48px) clamp(28px,5vw,64px);margin-top:clamp(28px,4vw,44px)}
+.razao{display:grid;gap:8px;align-content:start;border-top:2px solid var(--ink);padding-top:16px}
+.razao p{color:var(--muted);max-width:46ch}
+@media (max-width:700px){.razoes{grid-template-columns:minmax(0,1fr)}}
+/* como funciona */
+.passos{list-style:none;margin:clamp(28px,4vw,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;counter-reset:p}
+.passos li{counter-increment:p;display:grid;gap:8px;align-content:start}
+.passos li::before{content:counter(p);font:500 2.6rem/1 var(--f-d);color:var(--muted)}
+.passos p{color:var(--muted)}
+@media (max-width:760px){.passos{grid-template-columns:minmax(0,1fr)}}
 /* exemplos */
-.exs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,36px)}
-.ex{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:var(--surface);min-width:0}
+.exs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,32px);margin-top:clamp(28px,4vw,44px)}
+.ex{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line2);border-radius:10px;overflow:hidden;background:var(--bg);min-width:0}
 .ex > a{display:block;border-bottom:1px solid var(--line)}
 .ex > a img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
-.ex-b{display:grid;gap:16px;padding:22px clamp(18px,2.4vw,26px) 26px;align-content:start}
-.ex-b > p{color:var(--muted)}
-.carimbo{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border:1px solid var(--ink);overflow:hidden}
-.carimbo div{padding:7px 9px 8px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);margin:0 -1px -1px 0;min-width:0}
-.carimbo .w2{grid-column:span 2}
-.carimbo .w4{grid-column:1/-1}
-.carimbo dt{font-family:var(--f-m);font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.carimbo dd{margin:2px 0 0;font-family:var(--f-d);font-size:1.05rem;line-height:1.2;font-variant-numeric:tabular-nums}
-.ex-nota{margin-top:clamp(24px,3vw,32px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;max-width:860px;color:var(--muted)}
-.selo{font-family:var(--f-m);font-size:.7rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:var(--warn-bg);color:var(--warn-ink);padding:4px 7px;border-radius:3px;white-space:nowrap}
-@media (max-width:860px){.exs{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:420px){.carimbo{grid-template-columns:repeat(2,minmax(0,1fr))}.carimbo .w2{grid-column:1/-1}.ex-nota{grid-template-columns:minmax(0,1fr)}.selo{justify-self:start}}
-
-/* como funciona */
-.passos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;counter-reset:p}
-.passos li{counter-increment:p;display:grid;gap:10px;align-content:start;border-top:1px solid var(--ink);padding-top:16px}
-.passos li::before{content:counter(p);font:500 2.4rem/1 var(--f-d)}
-.passos p{color:var(--muted)}
-@media (max-width:960px){.passos{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:540px){.passos{grid-template-columns:minmax(0,1fr)}}
-
-/* perguntas */
-.pq-g{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:start}
-.cofre{display:grid;gap:14px;padding:22px;border:1px solid var(--line2);border-radius:8px;background:var(--surface)}
-.cofre ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
-.cofre li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:10px;color:var(--muted)}
-.cofre li::before{content:"";width:8px;height:8px;margin-top:.55em;background:var(--ink)}
-.faq{border-top:1px solid var(--line2)}
-.faq details{border-bottom:1px solid var(--line2)}
-.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:16px 2px;font:500 1.12rem/1.3 var(--f-d)}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--f-m);font-weight:400;color:var(--muted);flex:0 0 auto}
-.faq details[open] summary::after{content:"−"}
-.faq details p{padding:0 2px 18px;color:var(--muted);max-width:64ch}
-@media (max-width:900px){.pq-g{grid-template-columns:minmax(0,1fr)}}
-
-/* fecho */
-.fecho .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;align-items:end}
-.fecho h2{font-size:clamp(2rem,1.3rem + 2.4vw,3.1rem)}
-.fecho .lead{margin-top:14px}
-.fecho-c{display:grid;gap:12px;justify-items:start}
-.fecho-c small{color:var(--muted);font-size:.9rem}
-@media (max-width:860px){.fecho .wrap{grid-template-columns:minmax(0,1fr)}}
-.rodape{padding-block:0 36px;font-size:.92rem;color:var(--muted)}
-.rodape::before{content:"";display:block;height:4px;background:var(--faixa);margin-bottom:28px}
+.ex-b{display:grid;gap:14px;padding:20px clamp(18px,2.4vw,24px) 24px;align-content:start}
+.ex-b p{color:var(--muted)}
+.ex-nota{margin-top:20px;font-size:.95rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.selo{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--warn-bg);color:var(--warn-ink);padding:4px 7px;border-radius:3px;white-space:nowrap}
+@media (max-width:760px){.exs{grid-template-columns:minmax(0,1fr)}}
+/* contacto */
+.band{background:var(--band);color:var(--band-ink)}
+.band .lead{color:var(--band-muted)}
+.fecho .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 48px;align-items:end}
+.fecho .btn.pri{background:var(--band-ink);color:var(--band);border-color:var(--band-ink)}
+.fecho small{display:block;margin-top:10px;font-size:.9rem;color:var(--band-muted)}
+@media (max-width:760px){.fecho .wrap{grid-template-columns:minmax(0,1fr)}}
+.rodape{padding-block:0 32px;font-size:.92rem;color:var(--muted)}
+.rodape::before{content:"";display:block;height:4px;background:var(--faixa);margin-bottom:26px}
 .rodape .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
 .rodape svg{width:112px;height:31px;color:var(--ink)}
-.rodape p{max-width:60ch}
 </style>
 </head>
 <body>
@@ -278,13 +141,6 @@ p{margin:0}
       <b>Plataforma de obra</b>
       <small>por <svg role="img" aria-label="We Garden"><use href="#wg-logo"></use></svg></small>
     </a>
-    <nav class="nav" aria-label="Secções">
-      <a href="#especialidades">Especialidades</a>
-      <a href="#exemplos">Exemplos</a>
-      <a href="#video">Vídeo</a>
-      <a href="#como">Como funciona</a>
-      <a href="#perguntas">Perguntas</a>
-    </nav>
     <a class="btn pri" href="https://wegarden.pt/contactos/" target="_blank" rel="noopener">Pedir uma demonstração</a>
   </div>
 </header>
@@ -295,330 +151,81 @@ p{margin:0}
     <div class="hero-t">
       <p class="eyebrow">Para empreiteiros gerais e subempreiteiros</p>
       <h1 id="h1">A obra toda num mapa. Cada equipa vê a sua parte.</h1>
-      <p class="lead">Juntamos as plantas, os pormenores e o mapa de quantidades de todas as especialidades num só mapa, que abre no computador e no telemóvel. O empreiteiro geral convida os subempreiteiros e escolhe, especialidade a especialidade, o que cada um vê.</p>
+      <p class="lead">Juntamos o projeto de todas as especialidades num mapa que abre no computador e no telemóvel. O empreiteiro geral decide o que cada subempreiteiro vê.</p>
       <div class="btns">
-        <a class="btn pri" href="exemplos/exemplo-hotel.html" target="_blank" rel="noopener">Abrir uma obra de exemplo <span class="ar" aria-hidden="true">↗</span></a>
-        <a class="btn out" href="#video">Ver o vídeo <span class="ar">1:22</span></a>
-      </div>
-      <div class="hero-meta">
-        <p><b>Terras, muros, drenagem, águas, rega, eletricidade, pavimentos, mobiliário e plantação</b>, no mesmo desenho.</p>
-        <p>Vários pisos, artigos do mapa de quantidades, folhas e revisões, ocorrências e avanço. Sem instalar nada.</p>
+        <button class="btn pri" type="button" id="ver">Ver o vídeo · 1:48</button>
+        <a class="btn out" href="exemplos/exemplo-hotel.html" target="_blank" rel="noopener">Abrir uma obra de exemplo <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-
-    <figure class="vc" aria-label="A mesma obra de exemplo vista por quatro pessoas diferentes">
-      <div class="vc-bar">
-        <span class="tag" id="vc-l">Ver como</span>
-        <div class="seg" role="group" aria-labelledby="vc-l">
-          <button type="button" data-who="eg" aria-pressed="true">Empreiteiro geral</button>
-          <button type="button" data-who="srega" aria-pressed="false">Equipa de rega</button>
-          <button type="button" data-who="sele" aria-pressed="false">Equipa de eletricidade</button>
-          <button type="button" data-who="ster" aria-pressed="false">Equipa de terras e muros</button>
-        </div>
-      </div>
-      <div class="vc-shot">
-        <picture class="on" data-who="eg">
-          <source media="(max-width: 560px)" srcset="img/hero-eg-tel.jpg" width="640" height="1017">
-          <img src="img/hero-eg.jpg" width="1600" height="1000" alt="A obra de exemplo vista pelo empreiteiro geral: as nove especialidades a cores no mapa e, ao lado, a lista com o avanço de cada uma.">
-        </picture>
-        <picture data-who="srega">
-          <source media="(max-width: 560px)" data-srcset="img/hero-srega-tel.jpg" width="640" height="1017">
-          <img data-src="img/hero-srega.jpg" width="1600" height="1000" alt="A mesma obra vista pela equipa de rega: só a rega a cores; a drenagem, as águas, a eletricidade e a plantação em desenho cinzento; o resto não aparece.">
-        </picture>
-        <picture data-who="sele">
-          <source media="(max-width: 560px)" data-srcset="img/hero-sele-tel.jpg" width="640" height="1017">
-          <img data-src="img/hero-sele.jpg" width="1600" height="1000" alt="A mesma obra vista pela equipa de eletricidade: só a eletricidade a cores; a drenagem, as águas, a rega e a plantação em desenho cinzento; o resto não aparece.">
-        </picture>
-        <picture data-who="ster">
-          <source media="(max-width: 560px)" data-srcset="img/hero-ster-tel.jpg" width="640" height="1017">
-          <img data-src="img/hero-ster.jpg" width="1600" height="1000" alt="A mesma obra vista pela equipa de terras e muros: terras e muros a cores; a drenagem, as águas e a eletricidade em desenho cinzento; o resto não aparece.">
-        </picture>
-      </div>
-      <ul class="vc-esp" aria-label="O que esta pessoa vê de cada especialidade">
-        <li data-e="ter" data-s="c" style="--c:var(--ter)"><span class="bar"></span><span class="nm">Terras</span><span class="st">Completo</span></li>
-        <li data-e="mur" data-s="c" style="--c:var(--mur)"><span class="bar"></span><span class="nm">Muros</span><span class="st">Completo</span></li>
-        <li data-e="dre" data-s="c" style="--c:var(--dre)"><span class="bar"></span><span class="nm">Drenagem</span><span class="st">Completo</span></li>
-        <li data-e="agu" data-s="c" style="--c:var(--agu)"><span class="bar"></span><span class="nm">Águas</span><span class="st">Completo</span></li>
-        <li data-e="rega" data-s="c" style="--c:var(--rega)"><span class="bar"></span><span class="nm">Rega</span><span class="st">Completo</span></li>
-        <li data-e="ele" data-s="c" style="--c:var(--ele)"><span class="bar"></span><span class="nm">Eletricidade</span><span class="st">Completo</span></li>
-        <li data-e="pav" data-s="c" style="--c:var(--pav)"><span class="bar"></span><span class="nm">Pavimentos</span><span class="st">Completo</span></li>
-        <li data-e="mob" data-s="c" style="--c:var(--mob)"><span class="bar"></span><span class="nm">Mobiliário</span><span class="st">Completo</span></li>
-        <li data-e="pla" data-s="c" style="--c:var(--pla)"><span class="bar"></span><span class="nm">Plantação</span><span class="st">Completo</span></li>
-      </ul>
-      <figcaption class="vc-txt" aria-live="polite"><b>O empreiteiro geral</b> vê as nove especialidades por inteiro: quantidades, artigos, folhas e avanço. É ele que convida as outras pessoas e decide o que cada uma vê.</figcaption>
+    <figure class="vid">
+      <video id="vid" controls playsinline preload="metadata" poster="video/capa.jpg" width="720" height="900" aria-label="Vídeo de apresentação da plataforma de obra">
+        <source src="video/plataforma-de-obra.mp4" type="video/mp4">
+      </video>
+      <figcaption>Uma obra de exemplo, do monte de folhas ao telemóvel da equipa.</figcaption>
     </figure>
   </div>
 </section>
 
-<section class="sec alt" id="hoje" aria-labelledby="h-hoje">
+<section class="sec alt" id="porque" aria-labelledby="h-porque">
   <div class="wrap">
-    <div class="hoje-g">
-      <div class="hoje-t">
-        <p class="eyebrow">Como é hoje</p>
-        <h2 id="h-hoje">Uma folha por especialidade, por piso e por revisão</h2>
-        <p>Cada especialidade chega em folhas separadas, e cada piso tem as suas. A drenagem passa por baixo da rega e os cabos da iluminação atravessam os pavimentos, mas ninguém vê tudo junto até ao dia em que um tubo encontra outro à mesma cota.</p>
-        <p>A meio da obra chegam revisões, e há sempre alguém a trabalhar com a folha antiga. As quantidades contam-se à mão para conferir o mapa de quantidades, e as dúvidas ficam espalhadas por emails, mensagens e fotografias.</p>
-      </div>
-      <ul class="folhas" aria-label="Seis folhas da obra de exemplo do hotel">
-        <li><figure><img src="img/folha-dre.jpg" width="640" height="454" alt="Folha de drenagem" loading="lazy"><figcaption><b>P0-103</b> · Drenagem · R03</figcaption></figure></li>
-        <li><figure class="velha"><img src="img/folha-agu.jpg" width="640" height="454" alt="Folha de águas e esgotos" loading="lazy"><figcaption><b>P0-104</b> · Águas e esgotos · <b>R02</b></figcaption></figure></li>
-        <li><figure><img src="img/folha-rega.jpg" width="640" height="454" alt="Folha da rede de rega" loading="lazy"><figcaption><b>P0-105</b> · Rede de rega · R03</figcaption></figure></li>
-        <li><figure><img src="img/folha-ele.jpg" width="640" height="454" alt="Folha de eletricidade e iluminação" loading="lazy"><figcaption><b>P0-106</b> · Eletricidade · R03</figcaption></figure></li>
-        <li><figure><img src="img/folha-pav.jpg" width="640" height="454" alt="Folha de pavimentos e revestimentos" loading="lazy"><figcaption><b>P0-107</b> · Pavimentos · R03</figcaption></figure></li>
-        <li><figure><img src="img/folha-pla.jpg" width="640" height="454" alt="Folha de plantação e sementeiras" loading="lazy"><figcaption><b>P0-109</b> · Plantação · R03</figcaption></figure></li>
-      </ul>
+    <p class="eyebrow">Porquê</p>
+    <h2 id="h-porque">Menos erros em obra, menos tempo à procura de folhas</h2>
+    <div class="razoes">
+      <div class="razao"><h3>Ninguém trabalha com a folha errada</h3><p>Todas as especialidades e todos os pisos no mesmo mapa, sempre na revisão em vigor.</p></div>
+      <div class="razao"><h3>Cada equipa vê só o que lhe toca</h3><p>E vê por onde passam as redes dos outros, para não as cortar.</p></div>
+      <div class="razao"><h3>Quantidades conferidas antes de começar</h3><p>Medimos o desenho e comparamos com o mapa de quantidades. As diferenças chegam-lhe antes da obra.</p></div>
+      <div class="razao"><h3>Os problemas resolvem-se no sítio</h3><p>Ocorrências marcadas no mapa, com fotografia, e quem tem de responder é avisado na hora.</p></div>
     </div>
-
-    <table class="tab">
-      <caption>Hoje e com a plataforma</caption>
-      <thead><tr><th scope="col"><span class="sr">Assunto</span></th><th scope="col">Hoje</th><th scope="col">Com a plataforma</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Desenho</th><td class="nao" data-l="Hoje">Uma folha por especialidade e por piso</td><td data-l="Com a plataforma">Todas as especialidades no mesmo mapa, piso a piso</td></tr>
-        <tr><th scope="row">Quantidades</th><td class="nao" data-l="Hoje">Contadas à mão a partir do desenho</td><td data-l="Com a plataforma">Medidas no desenho e comparadas com o mapa de quantidades, artigo a artigo</td></tr>
-        <tr><th scope="row">Revisões</th><td class="nao" data-l="Hoje">Folhas trocadas a meio da obra, nem sempre por todos</td><td data-l="Com a plataforma">Só existe a revisão em vigor, com o que mudou escrito</td></tr>
-        <tr><th scope="row">Dúvidas</th><td class="nao" data-l="Hoje">Emails e fotografias soltas</td><td data-l="Com a plataforma">Ocorrências marcadas no sítio exato, com aviso na hora a quem tem de responder</td></tr>
-        <tr><th scope="row">Subempreiteiros</th><td class="nao" data-l="Hoje">Recebem pilhas de folhas, incluindo as que não lhes dizem respeito</td><td data-l="Com a plataforma">Veem no telemóvel só a sua parte, e o desenho do que não podem cortar</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section class="sec" id="especialidades" aria-labelledby="h-esp">
-  <div class="wrap">
-    <header class="sec-h">
-      <p class="eyebrow">Todas as especialidades</p>
-      <h2 id="h-esp">Nove especialidades no mesmo mapa, nenhuma em segundo plano</h2>
-      <p class="lead">Cada especialidade tem a sua cor, os seus artigos, as suas folhas e o seu avanço. Por baixo de cada uma, as contas da obra de exemplo do hotel.</p>
-    </header>
-    <ul class="esps">
-      <li style="--c:var(--ter)"><h3>Modelação e terras</h3><p>Cotas, curvas de nível, terra vegetal, substrato e camadas das coberturas, covas de plantação.</p><p class="conta">4974 m² de canteiros · 20 covas de árvore</p></li>
-      <li style="--c:var(--mur)"><h3>Muros e alvenarias</h3><p>Muros de vedação e de suporte, muretes, floreiras, guardas, escadas e portões.</p><p class="conta">628 m de muro de vedação · 94 m de muro de suporte</p></li>
-      <li style="--c:var(--dre)"><h3>Drenagem</h3><p>Sumidouros, ralos, caleiras, caixas de visita, coletores e drenos, com as pendentes.</p><p class="conta">11 sumidouros · 6 caixas de visita · 410 m de coletor</p></li>
-      <li style="--c:var(--agu)"><h3>Águas e esgotos</h3><p>Ligação à rede, tubagem de abastecimento, válvulas, marco de incêndio, bebedouros e esgoto doméstico.</p><p class="conta">104 m de tubo Ø 63 · 116 m de coletor de esgoto</p></li>
-      <li style="--c:var(--rega)"><h3>Rega</h3><p>Programador, eletroválvulas, aspersores, gotejadores, tubagem e setores de rega.</p><p class="conta">28 aspersores · 11 eletroválvulas · 682 m de rede secundária</p></li>
-      <li style="--c:var(--ele)"><h3>Eletricidade e iluminação</h3><p>Quadros, circuitos enterrados, candeeiros, balizadores, projetores e tomadas.</p><p class="conta">9 candeeiros · 11 balizadores · 509 m de circuito</p></li>
-      <li style="--c:var(--pav)"><h3>Pavimentos e revestimentos</h3><p>Lajeados, saibro, decks, betuminosos, lancis, guias e revestimento dos canteiros.</p><p class="conta">746 m² de lajeado · 992 m² de deck · 361 m de lancil</p></li>
-      <li style="--c:var(--mob)"><h3>Mobiliário</h3><p>Bancos, espreguiçadeiras, mesas, papeleiras e suportes de bicicletas.</p><p class="conta">6 bancos · 16 espreguiçadeiras · 6 papeleiras</p></li>
-      <li style="--c:var(--pla)"><h3>Plantação</h3><p>Árvores, arbustos, herbáceas e módulos de plantação, com a ficha e a fotografia de cada espécie.</p><p class="conta">20 árvores · 209 arbustos · 62 módulos</p></li>
-    </ul>
-    <p class="nota"><b>Cada obra tem as especialidades do seu projeto.</b> Pode ser só uma, como a rega ou a iluminação, ou outras que não estão aqui, como telecomunicações ou gás.</p>
-  </div>
-</section>
-
-<section class="sec alt" id="funcoes" aria-labelledby="h-fun">
-  <div class="wrap">
-    <header class="sec-h">
-      <p class="eyebrow">O que a plataforma faz</p>
-      <h2 id="h-fun">Do escritório à obra, a mesma informação</h2>
-      <p class="lead">Tudo funciona da mesma maneira em todas as especialidades, da drenagem à plantação. Pode experimentar nas obras de exemplo; nelas, os emails e o GPS são simulados.</p>
-    </header>
-    <div class="feats">
-      <article class="feat">
-        <div class="shot"><img src="img/f-pisos.jpg" width="1200" height="900" loading="lazy" alt="Cobertura verde do piso 9 do edifício de exemplo, com a pilha de pisos 0, 5 e 9 ao lado do mapa."></div>
-        <div class="ft"><p class="tag">Pisos</p><h3>Praça, terraço e cobertura, piso a piso</h3><p>Num edifício, cada piso tem o seu mapa, as suas folhas e as suas ocorrências. Muda-se de piso com um toque, e os detalhes comuns, como fundações e muretes, aparecem em todos.</p><p class="dado">Edifício de exemplo · pisos 0, 5 e 9 · 37 folhas</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-artigos.jpg" width="1200" height="900" loading="lazy" alt="Tabela de artigos da rega com previsto, desenho e feito, e uma diferença de menos 3 % assinalada para confirmar com o projetista."></div>
-        <div class="ft"><p class="tag">Mapa de quantidades</p><h3>Cada tipo de elemento é um artigo</h3><p>Previsto no mapa de quantidades, medido no desenho e feito em obra, lado a lado. Quando o desenho não bate certo com o mapa de quantidades, a diferença fica assinalada para confirmar com o projetista.</p><p class="dado">Art. 5.9 · Tubo PEAD Ø 25 mm · previsto 703,1 m · desenho 682,0 m · <mark>−3,0 %</mark></p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-iso.jpg" width="1200" height="900" loading="lazy" alt="Mapa com só os 28 aspersores de turbina à vista e o resto da obra esbatido."></div>
-        <div class="ft"><p class="tag">Ver só um tipo</p><h3>Só as caixas, só os aspersores, só uma espécie</h3><p>Toque num artigo ou num elemento e o mapa mostra só esse tipo, com o resto da obra esbatido. Também se esconde um tipo sem esconder a especialidade toda. Cada tipo tem a sua ficha, com as quantidades, o pormenor e a lista dos elementos.</p><p class="dado">Art. 5.5 · Aspersor emergente de turbina · 28 un</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-ficha0.jpg" width="1200" height="900" loading="lazy" alt="Ficha da caixa de visita CV3 com o artigo, o detalhe construtivo, o avanço e a ocorrência ligada a ela."></div>
-        <div class="ft"><p class="tag">Ficha do elemento</p><h3>Toque numa caixa, num tubo ou numa árvore</h3><p>Abre a ficha com o artigo, as dimensões, o pormenor construtivo da folha em vigor, a ampliação onde aparece, o avanço e as ocorrências desse elemento.</p><p class="dado">CV3 · Caixa de visita 60 × 60 cm · Art. 3.2 · Detalhe DR.02</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-folhas.jpg" width="1200" height="900" loading="lazy" alt="Folha P0-105, rede de rega, com as revisões R01 a R03 e o que mudou na R03."></div>
-        <div class="ft"><p class="tag">Folhas e revisões</p><h3>Sempre a revisão em vigor</h3><p>Plantas por piso, ampliações e detalhes, cada folha com as suas revisões. O que mudou em cada revisão fica escrito, e o mapa mostra onde.</p><p class="dado">P0-105 · Rede de rega · R03 em vigor desde 28/10/2026</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-zona.jpg" width="1200" height="900" loading="lazy" alt="Zona marcada no mapa e a lista do que ela leva, por especialidade."></div>
-        <div class="ft"><p class="tag">Medir e zona</p><h3>O que leva esta zona</h3><p>Com a régua mede-se uma distância ou marca-se uma zona no mapa. A plataforma diz o que a zona leva em cada especialidade: metros de tubo, m² de pavimento, caixas, plantas. A lista exporta para Excel.</p><p class="dado">Zona de 1198 m² · 41,9 m de tubo PEAD Ø 40 · 1 caixa de visita</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-acessos.jpg" width="1200" height="900" loading="lazy" alt="Formulário para convidar uma pessoa, com a escolha entre completo, desenho ou não vê para cada especialidade."></div>
-        <div class="ft"><p class="tag">Quem vê o quê</p><h3>Completo, só desenho ou nada</h3><p>O empreiteiro geral convida cada pessoa por email e escolhe, especialidade a especialidade, o que ela vê. Com «só desenho», a equipa vê por onde passam as outras redes, para não as cortar, mas não as quantidades. O que não pode ver não chega ao telemóvel dela.</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-oc-desk.jpg" width="1200" height="900" loading="lazy" alt="Ocorrência 14, tubo de rega e coletor pluvial à mesma cota, com fotografias e as respostas da fiscalização, do projetista e da equipa de rega."></div>
-        <div class="ft"><p class="tag">Ocorrências</p><h3>No sítio exato, com fotografia</h3><p>Quem está em obra marca o ponto no mapa, descreve o problema e junta fotografias. Quem tem de responder recebe um email na hora, e a conversa fica presa ao sítio. Só o empreiteiro geral fecha.</p><p class="dado">#14 · Tubo de rega e coletor pluvial à mesma cota · respondida</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot"><img src="img/f-avanco.jpg" width="1200" height="900" loading="lazy" alt="Avanço da obra a 32 %, com barras por especialidade e o mapa a mostrar o que já está feito."></div>
-        <div class="ft"><p class="tag">Avanço</p><h3>O que já está feito, por especialidade</h3><p>Cada equipa marca no telemóvel o que fez ou tem em curso. A percentagem sai das quantidades, e o mapa mostra o que está feito ao dono de obra e à fiscalização.</p><p class="dado">Hotel de exemplo · 32 % feito · terras 91 % · rega 21 %</p></div>
-      </article>
-      <article class="feat">
-        <div class="shot tel"><img src="img/f-guiar.jpg" width="560" height="890" loading="lazy" alt="Telemóvel a guiar até à caixa CV3: 68 metros para norte."></div>
-        <div class="ft"><p class="tag">Em obra</p><h3>Onde estou e guiar até aqui</h3><p>No telemóvel, o ponto azul mostra onde a equipa está. Escolha uma caixa, um candeeiro ou uma árvore e a plataforma indica a distância e a direção, com 3 a 5 metros de erro.</p><p class="dado">CV3 · 68 m para norte</p></div>
-      </article>
-    </div>
-    <ul class="mais" aria-label="Outras funções">
-      <li><b>Plantas em cada mancha</b><span>Área × compasso: a mancha diz quantas plantas leva, e a espécie diz o total. Lavandula viridis no hotel de exemplo: 643 m², cerca de 2573 plantas.</span></li>
-      <li><b>Procurar</b><span>Por código ou nome: CV3, lancil, aspersor, Lavandula. Leva ao elemento ou ao tipo.</span></li>
-      <li><b>Exportar para Excel</b><span>As quantidades de cada especialidade, com previsto, desenho e feito, e o que leva uma zona.</span></li>
-      <li><b>Feito ou por fazer</b><span>O mapa mostra tudo, só o que está feito ou só o que falta fazer.</span></li>
-      <li><b>Modo sol</b><span>Sem o fundo e com linhas e letras mais fortes, para ler o ecrã ao ar livre.</span></li>
-      <li><b>Ligação direta</b><span>Cada elemento e cada tipo tem uma ligação que se pode mandar a alguém.</span></li>
-    </ul>
-  </div>
-</section>
-
-<section class="sec band" id="video" aria-labelledby="h-vid">
-  <div class="wrap">
-    <div class="vid-g">
-      <video id="vid" controls playsinline preload="none" poster="video/capa.jpg" width="720" height="900" aria-label="Vídeo de apresentação da plataforma de obra">
-        <source src="video/plataforma-de-obra.mp4" type="video/mp4">
-      </video>
-      <div class="vid-t">
-        <p class="eyebrow">Vídeo · 1 minuto e 22 segundos</p>
-        <h2 id="h-vid">A plataforma numa obra de exemplo</h2>
-        <p class="lead">Das pilhas de folhas ao mapa no telemóvel. Toque num capítulo para saltar para essa parte.</p>
-        <ol class="caps">
-          <li><button type="button" data-t="3.5"><time>0:03</time><span>Como é hoje</span></button></li>
-          <li><button type="button" data-t="9.5"><time>0:09</time><span>Uma plataforma para a obra toda</span></button></li>
-          <li><button type="button" data-t="13.5"><time>0:13</time><span>Nove especialidades no mesmo mapa</span></button></li>
-          <li><button type="button" data-t="22.5"><time>0:22</time><span>Mapa de quantidades</span></button></li>
-          <li><button type="button" data-t="29.5"><time>0:29</time><span>Ficha do elemento</span></button></li>
-          <li><button type="button" data-t="36.5"><time>0:36</time><span>Vários pisos</span></button></li>
-          <li><button type="button" data-t="42.5"><time>0:42</time><span>Quem vê o quê</span></button></li>
-          <li><button type="button" data-t="50.5"><time>0:50</time><span>Ocorrências</span></button></li>
-          <li><button type="button" data-t="60"><time>1:00</time><span>Onde estou e guiar até aqui</span></button></li>
-          <li><button type="button" data-t="66.5"><time>1:06</time><span>Avanço</span></button></li>
-          <li><button type="button" data-t="72.5"><time>1:12</time><span>Folhas e revisões</span></button></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="exemplos" aria-labelledby="h-ex">
-  <div class="wrap">
-    <header class="sec-h">
-      <p class="eyebrow">Obras de exemplo</p>
-      <h2 id="h-ex">Duas obras para abrir já</h2>
-      <p class="lead">São obras completas, com todas as especialidades, folhas, pormenores, pessoas e ocorrências. Funcionam no computador e no telemóvel.</p>
-    </header>
-    <div class="exs">
-      <article class="ex">
-        <a href="exemplos/exemplo-hotel.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="img/ex-hotel.jpg" width="960" height="600" loading="lazy" alt=""></a>
-        <div class="ex-b">
-          <h3>Hotel · jardins e envolvente</h3>
-          <p>Arranjos exteriores de um hotel num só piso: as nove especialidades no mesmo mapa, com três ampliações e quatro folhas de detalhes.</p>
-          <dl class="carimbo">
-            <div class="w4"><dt>Obra</dt><dd>Hotel · jardins e envolvente</dd></div>
-            <div><dt>Pisos</dt><dd>1</dd></div>
-            <div><dt>Especialidades</dt><dd>9</dd></div>
-            <div><dt>Elementos</dt><dd>1150</dd></div>
-            <div><dt>Folhas</dt><dd>17</dd></div>
-            <div><dt>Pormenores</dt><dd>37</dd></div>
-            <div><dt>Pessoas</dt><dd>11</dd></div>
-            <div class="w2"><dt>Revisão</dt><dd>R03 · out. 2026</dd></div>
-          </dl>
-          <div class="btns"><a class="btn pri" href="exemplos/exemplo-hotel.html" target="_blank" rel="noopener">Abrir o exemplo do hotel <span class="ar" aria-hidden="true">↗</span></a></div>
-        </div>
-      </article>
-      <article class="ex">
-        <a href="exemplos/exemplo-edificio.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="img/ex-edificio.jpg" width="960" height="600" loading="lazy" alt=""></a>
-        <div class="ex-b">
-          <h3>Edifício de escritórios · praça, terraço e cobertura</h3>
-          <p>Arranjos exteriores em três pisos: a praça de entrada, o terraço do piso 5 e a cobertura verde do piso 9, com detalhes comuns a todos.</p>
-          <dl class="carimbo">
-            <div class="w4"><dt>Obra</dt><dd>Edifício de escritórios</dd></div>
-            <div><dt>Pisos</dt><dd>3</dd></div>
-            <div><dt>Especialidades</dt><dd>9</dd></div>
-            <div><dt>Elementos</dt><dd>1054</dd></div>
-            <div><dt>Folhas</dt><dd>37</dd></div>
-            <div><dt>Pormenores</dt><dd>40</dd></div>
-            <div><dt>Pessoas</dt><dd>12</dd></div>
-            <div class="w2"><dt>Revisão</dt><dd>R03 · out. 2026</dd></div>
-          </dl>
-          <div class="btns"><a class="btn pri" href="exemplos/exemplo-edificio.html" target="_blank" rel="noopener">Abrir o exemplo do edifício <span class="ar" aria-hidden="true">↗</span></a></div>
-        </div>
-      </article>
-    </div>
-    <p class="ex-nota"><span class="selo">Exemplo · obra fictícia</span><span>As duas obras são inventadas, tal como as pessoas e os emails. Nelas, as contas e os avisos por email são simulados: no topo da obra, «Ver como» mostra-a como outra pessoa a veria.</span></p>
-  </div>
-</section>
-
-<section class="sec alt" id="papeis" aria-labelledby="h-pap">
-  <div class="wrap">
-    <header class="sec-h">
-      <p class="eyebrow">Quem usa</p>
-      <h2 id="h-pap">Uma plataforma, cinco papéis</h2>
-      <p class="lead">O empreiteiro geral é o dono da obra na plataforma. Os outros entram por convite, com o acesso que ele escolher.</p>
-    </header>
-    <table class="tab" style="margin-top:0">
-      <thead><tr><th scope="col">Papel</th><th scope="col">O que vê</th><th scope="col">O que faz</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Empreiteiro geral</th><td data-l="O que vê">Tudo</td><td data-l="O que faz">Convida, decide os acessos, marca o avanço e fecha as ocorrências.</td></tr>
-        <tr><th scope="row">Subempreiteiros</th><td data-l="O que vê">O que o empreiteiro deixar: completo, só desenho ou nada, especialidade a especialidade</td><td data-l="O que faz">Marcam o avanço e respondem onde têm acesso completo. Abrem ocorrências.</td></tr>
-        <tr><th scope="row">Fiscalização</th><td data-l="O que vê">Normalmente tudo</td><td data-l="O que faz">Abre ocorrências, comenta e acompanha o avanço.</td></tr>
-        <tr><th scope="row">Projetistas</th><td data-l="O que vê">As suas especialidades e o desenho das outras</td><td data-l="O que faz">Respondem às ocorrências da sua especialidade.</td></tr>
-        <tr><th scope="row">Dono de obra</th><td data-l="O que vê">Tudo</td><td data-l="O que faz">Consulta o mapa e acompanha o avanço.</td></tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
 <section class="sec" id="como" aria-labelledby="h-como">
   <div class="wrap">
-    <header class="sec-h">
-      <p class="eyebrow">Como funciona</p>
-      <h2 id="h-como">Do projeto de execução ao telemóvel da equipa</h2>
-    </header>
+    <p class="eyebrow">Como funciona</p>
+    <h2 id="h-como">Começa com o projeto que já tem</h2>
     <ol class="passos">
-      <li><h3>Envia-nos o projeto</h3><p>As plantas, as ampliações e os detalhes de cada especialidade, em DWG ou PDF, e o mapa de quantidades.</p></li>
-      <li><h3>Montamos a obra</h3><p>Cada especialidade, cada piso e cada artigo. Medimos o desenho, comparamos com o mapa de quantidades e enviamos-lhe a lista do que não bate certo.</p></li>
-      <li><h3>Convida a equipa</h3><p>Por email. Para cada pessoa escolhe, especialidade a especialidade, se vê tudo, só o desenho ou nada.</p></li>
-      <li><h3>A obra avança</h3><p>As equipas abrem ocorrências e marcam o avanço no telemóvel. Quando chega uma revisão, atualizamos o mapa.</p></li>
+      <li><h3>Envia-nos o projeto</h3><p>As plantas de cada especialidade, em DWG ou PDF, e o mapa de quantidades.</p></li>
+      <li><h3>Montamos a obra</h3><p>E enviamos-lhe a lista do que não bate certo entre o desenho e o mapa de quantidades.</p></li>
+      <li><h3>Convida a equipa</h3><p>Por email. Cada pessoa vê o que escolher, e só entra quem for convidado.</p></li>
     </ol>
   </div>
 </section>
 
-<section class="sec alt" id="perguntas" aria-labelledby="h-pq">
+<section class="sec alt" id="exemplos" aria-labelledby="h-ex">
   <div class="wrap">
-    <div class="pq-g">
-      <div style="display:grid;gap:22px">
-        <header class="sec-h" style="margin-bottom:0">
-          <p class="eyebrow">Perguntas</p>
-          <h2 id="h-pq">O que costumam perguntar</h2>
-        </header>
-        <div class="cofre">
-          <h3>Os desenhos continuam a ser seus</h3>
-          <ul>
-            <li>Cada obra é fechada: só entra quem o empreiteiro geral convidar.</li>
-            <li>Cada pessoa só recebe no aparelho as especialidades que pode ver. O resto nem lá chega.</li>
-            <li>As obras não aparecem nos motores de busca.</li>
-            <li>Não usamos os seus desenhos noutras obras nem os mostramos a ninguém sem autorização.</li>
-          </ul>
+    <p class="eyebrow">Experimente</p>
+    <h2 id="h-ex">Duas obras de exemplo</h2>
+    <div class="exs">
+      <article class="ex">
+        <a href="exemplos/exemplo-hotel.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="img/ex-hotel.jpg" width="960" height="600" loading="lazy" alt=""></a>
+        <div class="ex-b">
+          <h3>Hotel · jardins e envolvente</h3>
+          <p>Arranjos exteriores com nove especialidades no mesmo mapa.</p>
+          <div class="btns"><a class="btn pri" href="exemplos/exemplo-hotel.html" target="_blank" rel="noopener">Abrir o exemplo <span aria-hidden="true">↗</span></a></div>
         </div>
-      </div>
-      <div class="faq">
-        <details><summary>Que ficheiros são precisos?</summary><p>As plantas de cada especialidade em DWG, as ampliações e os detalhes, e o mapa de quantidades em Excel. Se houver levantamento topográfico, também ajuda.</p></details>
-        <details><summary>E se o projeto só existir em PDF?</summary><p>Também serve, com limites. As folhas entram piso a piso e as ocorrências marcam-se em cima delas. Para medir as quantidades e ter a ficha de cada elemento precisamos do DWG. Antes de começar, dizemos-lhe o que conseguimos tirar dos PDF que tiver.</p></details>
-        <details><summary>Funciona em edifícios com vários pisos?</summary><p>Sim. Cada piso tem o seu mapa, as suas folhas e as suas ocorrências. Os detalhes comuns a vários pisos, como fundações e muretes, ficam ligados a todos.</p></details>
-        <details><summary>Uma obra com uma só especialidade também serve?</summary><p>Sim. Montamos só as especialidades que o projeto tiver, seja só a rega, só a iluminação ou todas.</p></details>
-        <details><summary>É preciso instalar alguma coisa?</summary><p>Não. Abre no navegador do computador, do tablet ou do telemóvel. No telemóvel pode pôr um atalho no ecrã principal.</p></details>
-        <details><summary>O GPS é preciso o suficiente?</summary><p>Ao ar livre, o GPS do telemóvel costuma ter 3 a 5 metros de erro. Chega para levar a equipa à zona certa; o ponto exato confirma-se no desenho. Dentro de edifícios o GPS falha, e aí usa-se só o mapa.</p></details>
-        <details><summary>Os preços do mapa de quantidades aparecem?</summary><p>Não. A plataforma mostra os artigos, as quantidades e as unidades. Os preços ficam de fora.</p></details>
-        <details><summary>E quando chega uma revisão do projeto?</summary><p>Envia-nos a revisão nova e atualizamos o mapa. Cada folha passa a mostrar a revisão em vigor e o que mudou.</p></details>
-        <details><summary>Quem trata dos acessos?</summary><p>O empreiteiro geral. Convida por email e muda os acessos de cada pessoa quando quiser. Quem é convidado entra com um código que recebe no email, sem palavras-passe.</p></details>
-      </div>
+      </article>
+      <article class="ex">
+        <a href="exemplos/exemplo-edificio.html" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="img/ex-edificio.jpg" width="960" height="600" loading="lazy" alt=""></a>
+        <div class="ex-b">
+          <h3>Edifício de escritórios</h3>
+          <p>Praça, terraço e cobertura verde: três pisos, cada um com o seu mapa.</p>
+          <div class="btns"><a class="btn pri" href="exemplos/exemplo-edificio.html" target="_blank" rel="noopener">Abrir o exemplo <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
     </div>
+    <p class="ex-nota"><span class="selo">Exemplo · obra fictícia</span><span>Use «Ver como», no topo da obra, para a ver como outra pessoa a veria.</span></p>
   </div>
 </section>
 
-<section class="sec fecho" aria-labelledby="h-fecho">
+<section class="sec band fecho" aria-labelledby="h-fecho">
   <div class="wrap">
     <div>
       <h2 id="h-fecho">Quer ver uma obra sua assim?</h2>
-      <p class="lead">Envie-nos as plantas de uma obra, mesmo que já esteja a decorrer, e mostramos-lhe como fica na plataforma.</p>
+      <p class="lead" style="margin-top:14px">Envie-nos as plantas de uma obra e mostramos-lhe como fica.</p>
     </div>
-    <div class="fecho-c">
-      <a class="btn pri" href="https://wegarden.pt/contactos/" target="_blank" rel="noopener">Falar com a We Garden <span class="ar" aria-hidden="true">↗</span></a>
-      <small>Contactos em wegarden.pt/contactos</small>
+    <div>
+      <a class="btn pri" href="https://wegarden.pt/contactos/" target="_blank" rel="noopener">Falar com a We Garden <span aria-hidden="true">↗</span></a>
+      <small>wegarden.pt/contactos</small>
     </div>
   </div>
 </section>
@@ -627,55 +234,17 @@ p{margin:0}
 <footer class="rodape">
   <div class="wrap">
     <svg role="img" aria-label="We Garden"><use href="#wg-logo"></use></svg>
-    <p>A plataforma de obra é um serviço da We Garden. As obras de exemplo são fictícias.</p>
+    <p>A plataforma de obra é um serviço da We Garden.</p>
   </div>
 </footer>
 </div>
 
 <script>
 (function () {
-  var ESP = ['ter', 'mur', 'dre', 'agu', 'rega', 'ele', 'pav', 'mob', 'pla'];
-  var AC = { eg: 'ccccccccc', srega: 'nnddcdnnd', sele: 'nndddcnnd', ster: 'ccddndnnn' };
-  var ST = { c: 'Completo', d: 'Só desenho', n: 'Não vê' };
-  var TXT = {
-    eg: '<b>O empreiteiro geral</b> vê as nove especialidades por inteiro: quantidades, artigos, folhas e avanço. É ele que convida as outras pessoas e decide o que cada uma vê.',
-    srega: '<b>A equipa de rega</b> vê a rega por inteiro. Da drenagem, das águas, da eletricidade e da plantação vê só o desenho, para saber por onde passam. As outras quatro especialidades não chegam ao telemóvel dela.',
-    sele: '<b>A equipa de eletricidade</b> vê a eletricidade por inteiro e, só em desenho, a drenagem, as águas, a rega e a plantação. Terras, muros, pavimentos e mobiliário não chegam ao telemóvel dela.',
-    ster: '<b>A equipa de terras e muros</b> vê as duas especialidades por inteiro. Da drenagem, das águas e da eletricidade vê só o desenho, para não cortar tubos nem cabos. O resto não chega ao telemóvel dela.'
-  };
-  var vc = document.querySelector('.vc');
-  var btns = vc.querySelectorAll('.seg button');
-  var pics = vc.querySelectorAll('.vc-shot picture');
-  var lis = vc.querySelectorAll('.vc-esp li');
-  var txt = vc.querySelector('.vc-txt');
-  function load(pic) {
-    pic.querySelectorAll('[data-srcset]').forEach(function (s) { s.srcset = s.dataset.srcset; s.removeAttribute('data-srcset'); });
-    pic.querySelectorAll('img[data-src]').forEach(function (i) { i.src = i.dataset.src; i.removeAttribute('data-src'); });
-  }
-  function show(who) {
-    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.who === who)); });
-    pics.forEach(function (p) { if (p.dataset.who === who) { load(p); p.classList.add('on'); } else p.classList.remove('on'); });
-    lis.forEach(function (li, i) { var s = AC[who][i]; li.dataset.s = s; li.querySelector('.st').textContent = ST[s]; });
-    txt.innerHTML = TXT[who];
-  }
-  btns.forEach(function (b) {
-    b.addEventListener('click', function () { show(b.dataset.who); });
-    b.addEventListener('pointerenter', function () { pics.forEach(function (p) { if (p.dataset.who === b.dataset.who) load(p); }); });
-  });
-  var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 1500); };
-  window.addEventListener('load', function () { idle(function () { pics.forEach(load); }); });
-
-  var v = document.getElementById('vid');
-  var caps = document.querySelectorAll('.caps button');
-  function go(t) {
-    function seek() { v.currentTime = t; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-    if (v.readyState < 1) { v.addEventListener('loadedmetadata', seek, { once: true }); v.load(); } else seek();
-  }
-  caps.forEach(function (b) { b.addEventListener('click', function () { go(parseFloat(b.dataset.t)); }); });
-  v.addEventListener('timeupdate', function () {
-    var cur = null;
-    caps.forEach(function (b) { if (v.currentTime >= parseFloat(b.dataset.t) - 0.05) cur = b; });
-    caps.forEach(function (b) { if (b === cur) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+  var v = document.getElementById('vid'), b = document.getElementById('ver');
+  b.addEventListener('click', function () {
+    v.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
   });
 })();
 </script>
